@@ -1,0 +1,31 @@
+.header {
+  text-align: center;
+  margin-bottom: 2.75rem;
+}
+
+.label {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: 0.02em;
+  background: linear-gradient(180deg, #ffffff 0%, #c4b5fd 45%, #818cf8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 28px rgba(167, 139, 250, 0.45));
+}
+
+.title {
+  margin: 0.75rem auto 0;
+  max-width: 36rem;
+  font-size: 1.05rem;
+  color: var(--text-soft);
+}
+
+.subtitle {
+  margin: 0.5rem auto 0;
+  max-width: 42rem;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}

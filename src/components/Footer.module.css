@@ -1,0 +1,37 @@
+.footer {
+  padding: 2rem 1.5rem 2.5rem;
+  border-top: 1px solid rgba(167, 139, 250, 0.12);
+  background: rgba(5, 5, 8, 0.6);
+  backdrop-filter: blur(12px);
+}
+
+.inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.copy {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.links {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.links a {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-soft);
+}
+
+.links a:hover {
+  color: var(--accent-violet);
+}
