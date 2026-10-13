@@ -1,0 +1,145 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  height: var(--header-h);
+  background: rgba(5, 5, 8, 0.55);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(167, 139, 250, 0.12);
+}
+
+.inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  height: 100%;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: var(--text);
+}
+
+.logo:hover {
+  color: var(--text);
+  opacity: 0.92;
+}
+
+.logoMark {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #7c3aed, #2563eb);
+  color: #fff;
+  box-shadow: 0 0 20px rgba(124, 58, 237, 0.45);
+}
+
+.logoText {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+}
+
+.nav a {
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  font-weight: 500;
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;
+  transition: color 0.2s, background 0.2s, box-shadow 0.2s;
+}
+
+.nav a:hover {
+  color: var(--text);
+  background: rgba(167, 139, 250, 0.12);
+}
+
+.nav a.active {
+  color: #fff;
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.9), rgba(37, 99, 235, 0.85));
+  box-shadow: 0 0 20px rgba(124, 58, 237, 0.35);
+}
+
+.menuBtn {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  background: var(--glass);
+  cursor: pointer;
+}
+
+.menuBtn span {
+  display: block;
+  width: 18px;
+  height: 2px;
+  margin: 0 auto;
+  background: var(--text);
+  border-radius: 1px;
+}
+
+@media (max-width: 900px) {
+  .menuBtn {
+    display: flex;
+  }
+
+  .nav {
+    position: fixed;
+    top: var(--header-h);
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1rem 1.25rem 1.5rem;
+    background: rgba(10, 8, 18, 0.92);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--glass-border);
+    transform: translateY(-120%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  .navOpen {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .nav a {
+    padding: 0.85rem 1rem;
+    border-radius: var(--radius);
+  }
+}
+
+@media (max-width: 480px) {
+  .logoText {
+    display: none;
+  }
+}
