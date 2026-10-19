@@ -1,4 +1,4 @@
-import { CosmicBackground } from './components/CosmicBackground'
+import { NetworkGlobeBackground } from './components/NetworkGlobeBackground'
 import { Header } from './components/Header'
 import { Hero } from './components/Hero'
 import { About } from './components/About'
@@ -11,7 +11,7 @@ import { Footer } from './components/Footer'
 function App() {
   return (
     <>
-      <CosmicBackground />
+      <NetworkGlobeBackground />
       <Header />
       <main>
         <Hero />

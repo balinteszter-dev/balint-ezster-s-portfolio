@@ -1,71 +1,74 @@
-import { useState } from 'react'
 import type { CSSProperties } from 'react'
-import { TbExternalLink } from 'react-icons/tb'
+import { HiArrowRight } from 'react-icons/hi'
 import { projects } from '../data/content'
-import { projectScreenshot } from '../utils/projectScreenshot'
+import { ProjectBrandIcon } from './ProjectBrandIcon'
 import { SectionHeading } from './SectionHeading'
 import styles from './Projects.module.css'
 
-function projectPreviewSrc(project: (typeof projects)[number]): string | null {
-  if ('image' in project && project.image) return project.image
-  if (project.link.startsWith('http') && !project.link.includes('github.com')) {
-    return projectScreenshot(project.link)
-  }
-  return null
+function asset(path: string) {
+  const normalized = path.startsWith('/') ? path.slice(1) : path
+  return `${import.meta.env.BASE_URL}${normalized}`
 }
 
-function ProjectThumb({ project }: { project: (typeof projects)[number] }) {
-  const initial = projectPreviewSrc(project)
-  const [src, setSrc] = useState<string | null>(initial)
-  const thumb = 'thumb' in project ? project.thumb : undefined
-
-  if (src) {
-    return (
-      <img
-        src={src}
-        alt={`${project.title} preview`}
-        className={styles.thumbImg}
-        loading="lazy"
-        decoding="async"
-        onError={() => {
-          if (src.includes('thum.io') && src.includes('/crop/')) {
-            setSrc(projectScreenshot(project.link, false))
-            return
-          }
-          setSrc(null)
-        }}
-      />
-    )
-  }
-
+function ProjectMockup({
+  image,
+  alt,
+  tone,
+  preview,
+}: {
+  image: string
+  alt: string
+  tone: 'light' | 'dark'
+  preview?: { objectPosition: string }
+}) {
   return (
-    <>
-      <div className={styles.thumbFallback} style={{ background: thumb } as CSSProperties} />
-      <div className={styles.thumbOverlay} />
-      <span className={styles.thumbLabel}>{project.tags[0]}</span>
-    </>
+    <div className={styles.mockup}>
+      <div
+        className={`${styles.mockupScreen} ${tone === 'dark' ? styles.mockupDark : styles.mockupLight}`}
+      >
+        <img
+          src={asset(image)}
+          alt={alt}
+          loading="lazy"
+          decoding="async"
+          style={
+            {
+              objectPosition: preview?.objectPosition ?? 'left top',
+            } as CSSProperties
+          }
+        />
+      </div>
+    </div>
   )
 }
 
 export function Projects() {
   return (
-    <section id="projects" className="section">
-      <div className="section-inner">
+    <section id="projects" className={`section ${styles.section}`}>
+      <div className={`section-inner ${styles.inner}`}>
         <SectionHeading
           label="My projects"
-          subtitle="Production-oriented work across AI, APIs, cloud delivery, and customer-facing applications."
+          subtitle="Built and integrated enterprise-grade solutions using leading cloud and AI technologies."
         />
+
         <div className={styles.grid}>
           {projects.map((project) => (
-            <article key={project.title} className={styles.card}>
-              <div className={styles.thumb}>
-                <ProjectThumb project={project} />
-              </div>
+            <article
+              key={project.title}
+              className={`${styles.card} ${styles[`theme_${project.theme}`]}`}
+            >
+              <ProjectMockup
+                image={project.image}
+                alt={project.title}
+                tone={project.mockupTone}
+                preview={project.preview}
+              />
               <div className={styles.body}>
+                <div className={styles.brandRow}>
+                  <ProjectBrandIcon theme={project.theme} />
+                  <span>{project.brand}</span>
+                </div>
                 <h3 className={styles.title}>{project.title}</h3>
-                {'category' in project && project.category ? (
-                  <span className={styles.category}>{project.category}</span>
-                ) : null}
                 <p className={styles.desc}>{project.description}</p>
                 <ul className={styles.tags}>
                   {project.tags.map((tag) => (
@@ -78,8 +81,7 @@ export function Projects() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <TbExternalLink aria-hidden />
-                  Visit Website
+                  View Project <HiArrowRight aria-hidden />
                 </a>
               </div>
             </article>

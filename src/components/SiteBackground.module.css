@@ -1,0 +1,80 @@
+.root {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  width: 100vw;
+  height: 100dvh;
+  overflow: hidden;
+  pointer-events: none;
+  background: #04060c;
+}
+
+.orbit {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 118vmax;
+  height: 118vmax;
+  transform: translate(-50%, -50%);
+  animation: naturalGlobeSpin 300s linear infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.bgImage {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  object-position: center 42%;
+}
+
+.vignette {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 90% 65% at 50% 42%, rgba(4, 6, 12, 0.48) 0%, rgba(4, 6, 12, 0.18) 50%, transparent 72%),
+    radial-gradient(ellipse 100% 100% at 50% 50%, transparent 18%, rgba(4, 6, 12, 0.62) 100%),
+    linear-gradient(180deg, rgba(4, 6, 12, 0.72) 0%, rgba(4, 6, 12, 0.18) 28%, rgba(4, 6, 12, 0.32) 72%, rgba(4, 6, 12, 0.82) 100%);
+}
+
+@keyframes naturalGlobeSpin {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .bgImage {
+    object-position: center 44%;
+  }
+
+  .orbit {
+    width: 125vmax;
+    height: 125vmax;
+  }
+}
+
+@media (min-aspect-ratio: 21/9) {
+  .bgImage {
+    object-position: center 42%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .orbit {
+    animation: none;
+    width: 100vw;
+    height: 100dvh;
+  }
+
+  .bgImage {
+    width: 100vw;
+    height: 100dvh;
+    object-fit: cover;
+  }
+}

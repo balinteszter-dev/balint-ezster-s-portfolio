@@ -7,16 +7,46 @@ export const profile = {
   email: 'balinteszter215@gmail.com',
   linkedin: 'https://www.linkedin.com/in/balint-eazter-416917430/',
   github: 'https://github.com/balinteszter215/',
-  portfolio: 'https://balinteszter215.github.io/portfolio/',
+  portfolio: 'https://balinteszter-dev.github.io/balint-ezster-s-portfolio/',
   summary:
     'Senior Full Stack & AI Engineer with 12+ years of experience building production web platforms, distributed backend services, and AI-enabled applications. I design secure APIs, microservices, and cloud-native systems on AWS, Azure, and GCP—while integrating LLMs, RAG, and automation with a focus on scalability, observability, security, and dependable delivery.',
+  aboutExtra:
+    'I partner with product and platform teams to ship reliable software—from API design and cloud delivery to AI features that hold up in production.',
   education: {
     degree: "Bachelor's Degree in Computer Science",
     school: 'University of California, Berkeley',
     period: '2012 – 2016',
   },
-  languages: [{ name: 'English', level: 'Advanced / C1' }],
+  languages: [{ name: 'English', level: 'Advanced / C1', progress: 92 }],
 }
+
+export const heroFeatures = [
+  {
+    title: 'Full-stack delivery',
+    text: 'React, Node, and cloud-native backends from prototype to production.',
+  },
+  {
+    title: 'Team collaboration',
+    text: 'Clear communication with product, design, and platform engineering.',
+  },
+  {
+    title: 'AI in production',
+    text: 'LLMs, RAG, and automation integrated with observability and security.',
+  },
+]
+
+export const techStack = [
+  { name: 'TypeScript', brand: 'typescript', color: '3178C6' },
+  { name: 'React', brand: 'react', color: '61DAFB' },
+  { name: 'Node.js', brand: 'nodedotjs', color: '339933' },
+  { name: 'Python', brand: 'python', color: '3776AB' },
+  { name: 'AWS', brand: 'amazonaws', color: 'FF9900' },
+  { name: 'Azure', brand: 'microsoftazure', color: '0078D4' },
+  { name: 'Docker', brand: 'docker', color: '2496ED' },
+  { name: 'Kubernetes', brand: 'kubernetes', color: '326CE5' },
+  { name: 'PostgreSQL', brand: 'postgresql', color: '4169E1' },
+  { name: 'OpenAI', brand: 'openai', color: '412991' },
+]
 
 export const skillGroups = [
   {
@@ -64,41 +94,61 @@ export const skillGroups = [
 export const projects = [
   {
     title: 'Azure Document Intelligence',
-    category: 'AI / Enterprise',
+    brand: 'Microsoft Azure',
+    iconBrand: 'microsoftazure',
+    iconColor: '0078D4',
+    theme: 'azure',
+    mockupTone: 'light',
     description:
       'Document understanding and information extraction with Azure AI Foundry — structured outputs, content understanding, and accelerated processing for enterprise documents.',
     tags: ['Azure', 'AI Foundry', 'Document AI', 'RAG'],
     link: 'https://azure.microsoft.com/en-us/products/ai-foundry/tools/document-intelligence',
-    image: '/projects/enterprise-document-intelligence.png',
-  },
-  {
-    title: 'Kong Konnect API Platform',
-    category: 'API Gateway / AI',
-    description:
-      'Unified API gateway and AI gateway management — service routing, LLM analytics, GenAI provider usage, token metrics, and production observability across microservices.',
-    tags: ['Kong', 'API Gateway', 'LLM', 'Microservices'],
-    link: 'https://konghq.com/products/kong-konnect',
-    image: '/projects/kong-konnect-api-platform.png',
-  },
-  {
-    title: 'Harness Continuous Delivery',
-    category: 'Cloud & DevOps',
-    description:
-      'Continuous delivery and GitOps for the autonomous SDLC — automated deployment pipelines, reduced maintenance toil, and faster release velocity at enterprise scale.',
-    tags: ['Harness', 'CI/CD', 'GitOps', 'Kubernetes'],
-    link: 'https://www.harness.io/products/continuous-delivery',
-    image: '/projects/harness-deployments.png',
+    image: '/projects/azure-document-intelligence.jpg',
+    preview: { objectPosition: '72% center' },
   },
   {
     title: 'Stripe Billing Platform',
-    category: 'SaaS / Payments',
+    brand: 'Stripe',
+    iconBrand: 'stripe',
+    iconColor: '635BFF',
+    theme: 'stripe',
+    mockupTone: 'light',
     description:
       'Subscription and usage-based billing — invoicing, revenue optimization, and the billing features modern product teams need to scale monetization.',
     tags: ['Stripe', 'Billing', 'Subscriptions', 'SaaS'],
     link: 'https://stripe.com/billing',
-    image: '/projects/stripe-billing.png',
+    image: '/projects/stripe-billing.jpg',
+    preview: { objectPosition: '70% center' },
   },
-]
+  {
+    title: 'Harness Continuous Delivery',
+    brand: 'Harness',
+    iconBrand: 'harness',
+    iconColor: '00ADE4',
+    theme: 'harness',
+    mockupTone: 'light',
+    description:
+      'Continuous delivery and GitOps for the autonomous SDLC — automated deployment pipelines, reduced maintenance toil, and faster release velocity at enterprise scale.',
+    tags: ['Harness', 'CI/CD', 'GitOps', 'Kubernetes'],
+    link: 'https://www.harness.io/products/continuous-delivery',
+    image: '/projects/harness-continuous-delivery.jpg',
+    preview: { objectPosition: '68% center' },
+  },
+  {
+    title: 'Kong Konnect API Platform',
+    brand: 'Kong',
+    iconBrand: 'kong',
+    iconColor: '003459',
+    theme: 'kong',
+    mockupTone: 'light',
+    description:
+      'Unified API gateway and AI gateway management — service routing, LLM analytics, GenAI provider usage, token metrics, and production observability across microservices.',
+    tags: ['Kong', 'API Gateway', 'LLM', 'Microservices'],
+    link: 'https://konghq.com/products/kong-konnect',
+    image: '/projects/kong-konnect.jpg',
+    preview: { objectPosition: '28% center' },
+  },
+] as const
 
 export const experiences = [
   {

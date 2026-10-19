@@ -20,7 +20,10 @@ npm install
 npm run dev
 ```
 
-Open the URL shown in the terminal (usually `http://localhost:5173`).
+Open **`http://127.0.0.1:5173/`** in Chrome or Edge (Simple Browser in the IDE sometimes cannot reach localhost).
+
+After `npm run build`, deploy with `npm run deploy` for GitHub Pages at  
+`https://balinteszter-dev.github.io/balint-ezster-s-portfolio/`
 
 ## Build for production
 

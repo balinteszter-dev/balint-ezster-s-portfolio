@@ -3,6 +3,8 @@ import { navLinks } from '../data/content'
 import { useActiveSection } from '../hooks/useActiveSection'
 import styles from './Header.module.css'
 
+const logoSrc = `${import.meta.env.BASE_URL}logo-avatar.jpg`
+
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
   const active = useActiveSection(navLinks.map((l) => l.id))
@@ -11,7 +13,14 @@ export function Header() {
     <header className={styles.header}>
       <div className={styles.inner}>
         <a href="#" className={styles.logo} onClick={() => setMenuOpen(false)}>
-          <span className={styles.logoMark}>BE</span>
+          <img
+            className={styles.logoAvatar}
+            src={logoSrc}
+            alt=""
+            width={38}
+            height={38}
+            decoding="async"
+          />
           <span className={styles.logoText}>Bálint Eszter</span>
         </a>
 
